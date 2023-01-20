@@ -1,7 +1,7 @@
 import { Layout } from "antd";
 import Head from "next/head";
 import { Col, Row } from "antd";
-import InfiniteScrollComponent from "@/components/InfiniteSrollComponent";
+import FeedComponent from "@/components/FeedComponent";
 
 const { Content } = Layout;
 
@@ -18,7 +18,7 @@ export default function Home() {
         <div className="container-fluid maxWidth">
           <Row justify={"center"}>
             <Col span={24}>
-              <InfiniteScrollComponent />
+              <FeedComponent />
             </Col>
           </Row>
         </div>

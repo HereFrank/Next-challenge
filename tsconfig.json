@@ -19,6 +19,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/components/InfiniteSrollComponent"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/components/FeedComponent"],
   "exclude": ["node_modules"]
 }

@@ -1,19 +1,20 @@
 import { Col, Row, Button, Typography } from "antd";
-import {
-  ArrowDownOutlined,
-  InboxOutlined,
-  SwapOutlined,
-} from "@ant-design/icons";
-import styles from "./OrderButtons.module.css";
 const { Text } = Typography;
 import InfiniteScroll from "react-infinite-scroll-component";
 import { useEffect, useState } from "react";
-import CardImage from "../CardImage";
-import { CardData } from "@/types";
+import CardImage from "./CardImage";
 import { useExplorePublications } from "@/hooks/useExplorePublications";
+import SortButtons from "./SortButtons";
+import { SortMode } from "@/types";
 
-const InfiniteScrollComponent = () => {
-  const { data, nextData, loadMoreData } = useExplorePublications();
+const FeedComponent = () => {
+  const { data, nextData, setData, loadMoreData } = useExplorePublications();
+  const [sortMode, setSortMode] = useState<SortMode>("LATEST");
+
+  useEffect(() => {
+    loadMoreData(sortMode);
+    // eslint-disable-next-line
+  }, [sortMode]);
 
   return (
     <>
@@ -29,28 +30,13 @@ const InfiniteScrollComponent = () => {
               Sort by:
             </Text>
           </div>
-
-          <Row align={"middle"} gutter={8}>
-            <Col>
-              <Button shape="round" className={`${styles.sortButton}`}>
-                Date created
-                <ArrowDownOutlined />
-              </Button>
-            </Col>
-            <Col>
-              <Button shape="round" className={`${styles.sortButton}`}>
-                Most collected
-                <InboxOutlined />
-              </Button>
-            </Col>
-            <Col>
-              <Button shape="round" className={`${styles.sortButton}`}>
-                Most mirrored
-                <SwapOutlined />
-              </Button>
-            </Col>
-          </Row>
         </div>
+
+        <SortButtons
+          setSortMode={setSortMode}
+          setData={setData}
+          sortMode={sortMode}
+        />
       </div>
 
       <InfiniteScroll
@@ -83,4 +69,4 @@ const InfiniteScrollComponent = () => {
   );
 };
 
-export default InfiniteScrollComponent;
+export default FeedComponent;

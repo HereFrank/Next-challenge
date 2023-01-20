@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { Space, Typography } from "antd";
 import {
   CommentOutlined,
