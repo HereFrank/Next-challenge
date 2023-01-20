@@ -30,14 +30,17 @@ const CardImage = ({
           <Space direction="vertical" className="textWhite">
             <Text className="textGreen">{user}</Text>
             <Text className="textWhite">Created at: {createdAt}</Text>
-            <Text className="textWhite d-flex alig-items-center">
-              <InboxOutlined /> <span>{collects}</span>
+            <Text className="textWhite d-flex">
+              <InboxOutlined className="d-flex align-items-center" />
+              <span className="ms-1">{collects}</span>
             </Text>
-            <Text className="textWhite d-flex alig-items-center">
-              <SwapOutlined /> <span>{mirrors}</span>
+            <Text className="textWhite d-flex">
+              <SwapOutlined className="d-flex align-items-center" />
+              <span className="ms-1">{mirrors}</span>
             </Text>
-            <Text className="textWhite d-flex alig-items-center">
-              <CommentOutlined /> <span>{comments}</span>
+            <Text className="textWhite d-flex">
+              <CommentOutlined className="d-flex align-items-center" />
+              <span className="ms-1">{comments}</span>
             </Text>
           </Space>
         </div>
