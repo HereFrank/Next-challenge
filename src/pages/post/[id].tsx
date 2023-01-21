@@ -5,6 +5,7 @@ import { PostData } from "@/types";
 import { Col, Layout, Row } from "antd";
 import ImagePost from "@/components/PostComponents/ImagePost";
 import ImagePostData from "@/components/PostComponents/ImagePostData";
+import { processPictureUrl } from "@/helpers";
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   //@ts-ignore
@@ -16,15 +17,15 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     numberOfMirrors: null,
     numberOfComments: null,
     user: "",
-    profileLink: "",
+    profileLink: null,
     postDescription: "",
+    postId: "",
   };
 
   try {
     const {
       data: { publication },
     } = await getPost(id);
-    console.log(publication);
     postData = {
       imageLink: `https://lens.infura-ipfs.io/ipfs/${
         publication.metadata.media[0].original.url.split("ipfs://")[1]
@@ -33,10 +34,13 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       numberOfMirrors: publication.stats.totalAmountOfMirrors,
       numberOfComments: publication.stats.totalAmountOfComments,
       user: `@${publication.profile.handle}`,
-      profileLink: `https://lens.infura-ipfs.io/ipfs/${
-        publication.profile.picture.original.url.split("ipfs://")[1]
-      }`,
+      // @ts-ignore
+      profileLink: processPictureUrl(
+        publication.profile?.picture?.uri ??
+          publication.profile?.picture?.original?.url
+      ),
       postDescription: publication.metadata.content,
+      postId: id,
     };
   } catch (error) {
     console.log(error);
@@ -57,9 +61,10 @@ const PostView = ({
   user,
   profileLink,
   postDescription,
+  postId,
 }: PostData) => {
   useEffect(() => {
-    getPost("0x015c72-0x30").then((response) => console.log(response));
+    getPost("0x28a2-0x0108").then((response) => console.log(response));
   }, []);
 
   return (
@@ -79,6 +84,8 @@ const PostView = ({
                   user={user}
                   profileLink={profileLink}
                   postDescription={postDescription}
+                  postId={postId}
+                  numberOfComments={numberOfComments}
                 />
               </Row>
             </div>

@@ -9,3 +9,18 @@ export function formatDate(date: string): string {
 
     return formatedDate
 }
+
+export function processPictureUrl(url: string | undefined): string | null {
+    if (url === undefined) return null
+
+    // Try to process url
+    const pictureId = url.split("ipfs://")[1]
+
+    // If process fail means the url is OK. 
+    if (pictureId) {
+        return `https://lens.infura-ipfs.io/ipfs/${pictureId}`
+    }
+    else {
+        return url
+    }
+}

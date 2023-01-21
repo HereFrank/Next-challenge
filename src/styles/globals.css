@@ -1,4 +1,4 @@
-:root {
+/* :root {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
   --bs-purple: #6f42c1;
@@ -65,7 +65,7 @@
   --bs-link-hover-color: #0a58ca;
   --bs-code-color: #d63384;
   --bs-highlight-bg: #fff3cd;
-}
+} */
 
 * {
   box-sizing: border-box;
@@ -109,8 +109,10 @@ a {
   color: #abfe2c!important;
 }
 
-.textWhite {
+.textWhite,
+.ant-empty-description  {
   color: rgba(255, 255, 255, 0.85);
+  
 }
 
 .ant-btn-primary {
@@ -172,3 +174,24 @@ a {
 .text-lg {
   font-size: large !important;
 }
+
+.avatar-default {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.ant-skeleton-avatar,
+.ant-skeleton-title,
+.ant-skeleton-paragraph{
+  background-color: #313131 !important;
+}
+
+.ant-empty-description {
+  color: #686868
+}
+
+/* .ant-empty-image * {
+  color: #686868;
+  background-color: red;
+} */
+
+  

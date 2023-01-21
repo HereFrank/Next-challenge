@@ -1,5 +1,8 @@
+import { useGetPostComments } from "@/hooks/useGetPostComments";
 import { ImagePostData } from "@/types";
-import { Avatar, Col, Space, Typography } from "antd";
+import { Avatar, Col, Divider, List, Skeleton, Space, Typography } from "antd";
+import { useEffect } from "react";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 const { Text, Title } = Typography;
 
@@ -7,7 +10,15 @@ const ImagePostData = ({
   user,
   profileLink,
   postDescription,
+  postId,
+  numberOfComments,
 }: ImagePostData) => {
+  const { commentData, nextData, loadMoreData } = useGetPostComments();
+
+  useEffect(() => {
+    loadMoreData(postId);
+  }, []);
+
   return (
     <Col md={24} lg={12}>
       <div className="profileMenu p-3">
@@ -35,6 +46,49 @@ const ImagePostData = ({
               >
                 Comments
               </Title>
+              <InfiniteScroll
+                dataLength={commentData.length}
+                next={() => loadMoreData(postId, nextData)}
+                hasMore={commentData.length < numberOfComments!}
+                loader={<Skeleton avatar paragraph={{ rows: 1 }} active />}
+                scrollableTarget="scrollableDiv"
+                endMessage={
+                  <Divider plain style={{ borderTopColor: "rgb(96 96 96)" }}>
+                    <span className="textWhite">
+                      It is all, nothing more 🤐
+                    </span>
+                  </Divider>
+                }
+              >
+                <List
+                  itemLayout="horizontal"
+                  dataSource={commentData}
+                  renderItem={(item) => (
+                    <List.Item>
+                      <List.Item.Meta
+                        avatar={
+                          <Avatar
+                            src={item.profilePictureLink ?? ""}
+                            className={
+                              item.profilePictureLink ? "" : `avatar-default`
+                            }
+                          />
+                        }
+                        title={
+                          <a href="https://ant.design" className="textGreen">
+                            {item.user}
+                          </a>
+                        }
+                        description={
+                          <Text className={"textWhite"}>
+                            {item.commentContent}
+                          </Text>
+                        }
+                      />
+                    </List.Item>
+                  )}
+                />
+              </InfiniteScroll>
             </div>
           </div>
         </div>

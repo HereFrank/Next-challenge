@@ -19,9 +19,15 @@ export interface PostData {
   numberOfMirrors: number | null;
   numberOfComments: number | null;
   user: string;
-  profileLink: string;
+  profileLink: string | null;
   postDescription: string;
+  postId: string
 }
 
-export type ImagePost = Omit<PostData, "user" | "profileLink" | "postDescription">
-export type ImagePostData = Omit<PostData, "imageLink" | "numberOfCollects" | "numberOfMirrors" | "numberOfComments">
+export type ImagePost = Omit<PostData, "user" | "profileLink" | "postDescription"| "postId">
+export type ImagePostData = Omit<PostData, "imageLink" | "numberOfCollects" | "numberOfMirrors">
+export interface CommentData {
+  profilePictureLink: string,
+  user: string,
+  commentContent: string
+}
