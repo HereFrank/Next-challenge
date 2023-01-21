@@ -164,3 +164,11 @@ a {
   opacity: 1;
 }
 
+.profileGallery, .profileMenu {
+  background-color: #141414;
+  border-radius: 4px;
+}
+
+.text-lg {
+  font-size: large !important;
+}
