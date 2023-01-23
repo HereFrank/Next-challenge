@@ -1,10 +1,11 @@
 import { useGetPostComments } from "@/hooks/useGetPostComments";
 import { ImagePostData } from "@/types";
 import { Avatar, Col, Divider, List, Skeleton, Space, Typography } from "antd";
-import { useEffect } from "react";
+import Link from "next/link";
+import { useEffect, useMemo } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 
-const { Text, Title } = Typography;
+const { Text, Title, Link: LinkAnt } = Typography;
 
 const ImagePostData = ({
   user,
@@ -25,7 +26,9 @@ const ImagePostData = ({
         <div className="mt-3">
           <Space align="center">
             <Avatar src={profileLink} />
-            <Text className="textGreen text-lg isButton">{user}</Text>
+            <LinkAnt className="textGreen text-lg isButton" href="">
+              {user}
+            </LinkAnt>
           </Space>
         </div>
         <div className="mt-3">
@@ -68,7 +71,11 @@ const ImagePostData = ({
                   dataSource={commentData}
                   renderItem={(item, index) => (
                     <List.Item
-                      style={{ borderBlockEnd: "1px solid #5c5c5c8f" }}
+                      style={
+                        index !== commentData.length - 1
+                          ? { borderBlockEnd: "1px solid #5c5c5c8f" }
+                          : {}
+                      }
                     >
                       <List.Item.Meta
                         avatar={
@@ -80,9 +87,12 @@ const ImagePostData = ({
                           />
                         }
                         title={
-                          <a href="https://ant.design" className="textGreen">
+                          <Link
+                            href={`/user/${item.user.split("@")[1]}`}
+                            className="textGreen"
+                          >
                             {item.user}
-                          </a>
+                          </Link>
                         }
                         description={
                           <Text className={"textWhite"}>
