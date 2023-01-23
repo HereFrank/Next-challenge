@@ -1,4 +1,4 @@
-import { Footer } from "./Footer";
+import { FooterComponent } from "./FooterComponent";
 import { Navbar } from "./Navbar";
 import { Layout } from "antd";
 
@@ -11,7 +11,7 @@ export const LayoutComponent = ({
     <Layout className="layout">
       <Navbar />
       {children}
-      <Footer />
+      <FooterComponent />
     </Layout>
   );
 };

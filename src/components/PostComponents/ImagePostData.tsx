@@ -36,7 +36,10 @@ const ImagePostData = ({
         <div className="mt-3">
           <div
             className="scrollableDiv"
-            style={{ maxHeight: "400px", overflow: "auto" }}
+            style={{
+              maxHeight: "400px",
+              overflow: "auto",
+            }}
           >
             <div className="my-3">
               <Title
@@ -63,8 +66,10 @@ const ImagePostData = ({
                 <List
                   itemLayout="horizontal"
                   dataSource={commentData}
-                  renderItem={(item) => (
-                    <List.Item>
+                  renderItem={(item, index) => (
+                    <List.Item
+                      style={{ borderBlockEnd: "1px solid #5c5c5c8f" }}
+                    >
                       <List.Item.Meta
                         avatar={
                           <Avatar

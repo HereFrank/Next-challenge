@@ -24,6 +24,15 @@ export interface PostData {
   postId: string
 }
 
+export interface UserData {
+    followers: number,
+    following: number,
+    user: string,
+    userId: string,
+    profileLink: string,
+    publicationsTotal: number
+};
+
 export type ImagePost = Omit<PostData, "user" | "profileLink" | "postDescription"| "postId">
 export type ImagePostData = Omit<PostData, "imageLink" | "numberOfCollects" | "numberOfMirrors">
 export interface CommentData {

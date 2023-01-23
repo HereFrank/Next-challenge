@@ -169,7 +169,7 @@ const GET_PUBLICATIONS = `
       
 `;
 
-export const getUserPosts = (profileId, cursor=null) => {
+export const getUserPosts = (profileId: string, cursor: null | string = null): any => {
   return new Promise(async (resolve, reject) => {
     try{
       const response = await apolloClient.query({

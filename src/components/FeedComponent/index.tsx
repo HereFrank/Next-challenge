@@ -46,23 +46,11 @@ const FeedComponent = () => {
         loader={<h4>Loading...</h4>}
       >
         <Row justify={"center"} gutter={[8, 8]}>
-          {data.map(
-            (
-              { imageLink, user, createdAt, collects, mirrors, comments },
-              index
-            ) => (
-              <Col key={index} xs={8} sm={8} md={6} lg={6}>
-                <CardImage
-                  imageLink={imageLink}
-                  user={user}
-                  createdAt={createdAt}
-                  collects={collects}
-                  mirrors={mirrors}
-                  comments={comments}
-                />
-              </Col>
-            )
-          )}
+          {data.map((item, index) => (
+            <Col key={index} xs={8} sm={8} md={6} lg={6}>
+              <CardImage {...item} />
+            </Col>
+          ))}
         </Row>
       </InfiniteScroll>
     </>

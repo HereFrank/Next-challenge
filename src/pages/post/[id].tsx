@@ -63,10 +63,6 @@ const PostView = ({
   postDescription,
   postId,
 }: PostData) => {
-  useEffect(() => {
-    getPost("0x28a2-0x0108").then((response) => console.log(response));
-  }, []);
-
   return (
     <Content className="d-flex justify-content-center">
       <div className="container-fluid maxWidth">
