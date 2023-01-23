@@ -8,6 +8,7 @@ export interface CardData {
     collects: number;
     mirrors: number;
     comments: number;
+    postId: string
   }
 
 export type SortMode = "TOP_COMMENTED" | "TOP_COLLECTED" | "TOP_MIRRORED" | "LATEST";

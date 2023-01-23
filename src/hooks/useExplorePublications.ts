@@ -27,6 +27,7 @@ export const useExplorePublications = () => {
           };
           const { data: response } = await explorePublications(request); // To get next result replace the cursor with the value of response.pageInfo.next
           setNextData(response.explorePublications.pageInfo.next)
+          console.log('items', response.explorePublications.items) 
           const newData = response.explorePublications.items.map((item: any) => {
             const imageId = (item.metadata.media[0].original.url).split("ipfs://")[1];
             return ({
@@ -35,7 +36,8 @@ export const useExplorePublications = () => {
                 createdAt: formatDate(item.createdAt),
                 collects: item.stats.totalAmountOfCollects,
                 mirrors:  item.stats.totalAmountOfMirrors,
-                comments: item.stats.totalAmountOfComments
+                comments: item.stats.totalAmountOfComments,
+                postId: item.id
             })})
           setData([...data, ...newData])
           setLoading(false)
