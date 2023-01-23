@@ -13,7 +13,7 @@ export const FooterComponent = () => {
           md={12}
           lg={12}
         >
-          <Text className="textWhite">
+          <Text className="textWhite text-sm">
             Made by your frens at{" "}
             <a href="https://thegallerydao.io" className="text-white">
               <svg
@@ -29,7 +29,7 @@ export const FooterComponent = () => {
               </svg>
             </a>
           </Text>
-          <Text className="textWhite">AI engine from Selas Studio</Text>
+          <Text className="textWhite text-sm">AI engine from Selas Studio</Text>
         </Col>
         <Col>
           <Row justify={"center"} gutter={[8, 8]}>
@@ -38,7 +38,7 @@ export const FooterComponent = () => {
                 type="text"
                 href="https://www.artofficialintelligence.xyz/faq"
               >
-                <span className="textWhite">FAQ</span>
+                <Text className="textWhite">FAQ</Text>
               </Button>
             </Col>
             <Col>
@@ -46,7 +46,7 @@ export const FooterComponent = () => {
                 type="text"
                 href="https://www.artofficialintelligence.xyz/tac"
               >
-                <span className="textWhite">Terms & Conditions</span>
+                <Text className="textWhite">Terms & Conditions</Text>
               </Button>
             </Col>
             <Col>
@@ -54,7 +54,7 @@ export const FooterComponent = () => {
                 type="text"
                 href="https://www.artofficialintelligence.xyz/privacy"
               >
-                <span className="textWhite">Privacy Policy</span>
+                <Text className="textWhite">Privacy Policy</Text>
               </Button>
             </Col>
           </Row>

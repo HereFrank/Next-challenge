@@ -41,7 +41,7 @@ const FeedComponent = () => {
 
       <InfiniteScroll
         dataLength={data.length}
-        next={() => loadMoreData(nextData)}
+        next={() => loadMoreData(sortMode, nextData)}
         hasMore={true}
         loader={<h4>Loading...</h4>}
       >
