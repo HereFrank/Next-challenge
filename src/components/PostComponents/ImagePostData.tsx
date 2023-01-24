@@ -26,7 +26,10 @@ const ImagePostData = ({
         <div className="mt-3">
           <Space align="center">
             <Avatar src={profileLink} />
-            <LinkAnt className="textGreen text-lg isButton" href="">
+            <LinkAnt
+              className="textGreen text-lg isButton"
+              href={`/user/${user.split("@")[1]}`}
+            >
               {user}
             </LinkAnt>
           </Space>
