@@ -10,10 +10,6 @@ const UserComponent = ({
   user,
   profileLink,
 }: UserData) => {
-  useEffect(() => {
-    console.log("profileLink", profileLink);
-  }, []);
-
   return (
     <>
       <div className="profileMenu p-3 d-flex justify-content-center flex-column">

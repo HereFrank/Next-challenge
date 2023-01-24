@@ -12,7 +12,6 @@ const ImagePost = ({
   numberOfMirrors,
   numberOfComments,
 }: ImagePost) => {
-  console.log(imageLink);
   return (
     <Col md={24} lg={12}>
       <div className="text-center">

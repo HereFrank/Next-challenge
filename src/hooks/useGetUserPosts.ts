@@ -17,9 +17,7 @@ export const useGetUserPosts = () => {
         setLoading(true);
         
         try {
-            const { data : {publications}} = await getUserPosts(userId, cursorValue); // To get next result replace the cursor with the value of response.pageInfo.next
-            console.log('data', publications)
-        
+            const { data : {publications}} = await getUserPosts(userId, cursorValue); // To get next result replace the cursor with the value of response.pageInfo.next    
             setNextData(publications.pageInfo.next)
             const {items} = publications
           

@@ -30,7 +30,7 @@ const SortButtons = ({
     setData([]);
   };
   return (
-    <Row align={"middle"} gutter={8}>
+    <Row align={"middle"} gutter={[8, 8]}>
       <Col>
         <Button
           shape="round"

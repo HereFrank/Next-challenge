@@ -26,8 +26,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   try {
     const profile = await getUserProfile(id);
 
-    console.log(profile);
-
     userData = {
       followers: profile.stats.totalFollowers,
       following: profile.stats.totalFollowing,
@@ -39,8 +37,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       ),
       publicationsTotal: profile.stats.publicationsTotal,
     };
-
-    console.log("userData", userData);
   } catch (error) {
     console.log(error);
   }
@@ -56,14 +52,6 @@ const UserView = (userData: UserData) => {
   const { postData, nextData, loadMoreData } = useGetUserPosts();
 
   useEffect(() => {
-    //   getUserPosts(userData.userId)
-    //     .then((response) => console.log(response))
-    //     .catch((error) => console.log(error));
-
-    // getUserProfile("bradorbradley.lens")
-    //   .then((response) => console.log(response))
-    //   .catch((error) => console.log(error));
-    // console.log(userData.userId);
     loadMoreData(userData.userId);
   }, []);
 
