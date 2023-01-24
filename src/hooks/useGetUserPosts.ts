@@ -7,10 +7,10 @@ export const useGetUserPosts = () => {
 
     const [loading, setLoading] = useState(false);
     const [postData, setPostData] = useState<ImagePost[]>([]);
-    const [nextData, setNextData] = useState<string>("")
+    const [nextData, setNextData] = useState<string>('{"timestamp":1,"offset":0}')
 
     const loadMoreData = useCallback(
-      async (userId: string, cursorValue = '{"timestamp":1,"offset":0}') => {
+      async (userId: string, cursorValue = nextData) => {
         if (loading) {
             return;
         }
@@ -30,14 +30,15 @@ export const useGetUserPosts = () => {
                 numberOfComments: totalAmountOfComments,
                 numberOfMirrors: totalAmountOfMirrors
             })})
-            setPostData([...postData, ...utilData])
+            setPostData((oldPostData) => [...oldPostData, ...utilData])
             setLoading(false)
         } catch (err) {
           console.log(err);
           setLoading(false);
         }
       },
-      [postData, loading]
+      // eslint-disable-next-line
+      []
     )
     
   return {postData, nextData, setPostData, loadMoreData}

@@ -3,7 +3,7 @@
 const withFonts = require("next-fonts");
 
 const nextConfig = {
-  reactStrictMode: true,
+  reactStrictMode: false,
   images: {
     remotePatterns: [
       {

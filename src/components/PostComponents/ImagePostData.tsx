@@ -18,7 +18,12 @@ const ImagePostData = ({
 
   useEffect(() => {
     loadMoreData(postId);
+    //eslint-disable-next-line
   }, []);
+
+  // useEffect(() => {
+  //   console.log("making a call", nextData);
+  // }, [nextData]);
 
   return (
     <Col md={24} lg={12}>

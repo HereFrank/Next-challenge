@@ -31,7 +31,7 @@ export interface UserData {
     user: string,
     userId: string,
     profileLink: string,
-    publicationsTotal: number
+    postsTotal: number
 };
 
 export type ImagePost = Omit<PostData, "user" | "profileLink" | "postDescription"| "postId">

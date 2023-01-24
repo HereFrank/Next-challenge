@@ -7,10 +7,10 @@ export const useExplorePublications = () => {
 
     const [loading, setLoading] = useState(false);
     const [data, setData] = useState<CardData[]>([]);
-    const [nextData, setNextData] = useState<string>("")
+    const [nextData, setNextData] = useState<string>('{"timestamp":1,"offset":0}')
 
     const loadMoreData = useCallback(
-      async (sortMode: string, cursorValue = '{"timestamp":1,"offset":0}') => {
+      async (sortMode: string, cursorValue = nextData) => {
         if (loading) {
             return;
         }
@@ -38,14 +38,15 @@ export const useExplorePublications = () => {
                 comments: item.stats.totalAmountOfComments,
                 postId: item.id
             })})
-          setData([...data, ...newData])
+          setData((oldData) => [...oldData, ...newData])
           setLoading(false)
         } catch (err) {
           console.log(err);
           setLoading(false);
         }
       },
-      [data, loading]
+      // eslint-disable-next-line
+      []
     )
     
   return {data, nextData, setData, loadMoreData}

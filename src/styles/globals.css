@@ -1,13 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 
 
-
-/* html {
-  font-family: Inter,sans-serif !important;
-  font-size: 16px !important;
-} */
-
-
 * {
   box-sizing: border-box;
   padding: 0;
@@ -17,8 +10,8 @@
 }
 
 body {
-  font-family: var(--bs-body-font-family);
-  font-size: var(--bs-body-font-size);
+  /* font-family: var(--bs-body-font-family);
+  font-size: var(--bs-body-font-size); */
   font-weight: var(--bs-body-font-weight);
   line-height: var(--bs-body-line-height);
   color: var(--bs-body-color);
@@ -45,6 +38,11 @@ a {
 
 .text-md {
   font-size: 16px;
+}
+
+.text-big {
+  font-size: 42px !important;
+  font-weight: 200 !important;
 }
 
 .textGreen {

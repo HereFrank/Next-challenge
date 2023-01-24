@@ -20,7 +20,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     user: "",
     userId: "",
     profileLink: "",
-    publicationsTotal: 0,
+    postsTotal: 0,
   };
 
   try {
@@ -35,7 +35,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       profileLink: processPictureUrl(
         profile?.picture?.uri ?? profile?.picture?.original?.url
       ),
-      publicationsTotal: profile.stats.publicationsTotal,
+      postsTotal: profile.stats.postsTotal,
     };
   } catch (error) {
     console.log(error);
@@ -71,9 +71,9 @@ const UserView = (userData: UserData) => {
                     <InfiniteScroll
                       dataLength={postData.length}
                       next={() => loadMoreData(userData.userId, nextData)}
-                      hasMore={true}
+                      hasMore={postData.length < userData.postsTotal}
                       loader={
-                        <Title level={1} className="textWhite">
+                        <Title level={1} className="textWhite text-big">
                           Loading...
                         </Title>
                       }

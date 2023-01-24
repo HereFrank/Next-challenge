@@ -7,10 +7,10 @@ export const useGetPostComments = () => {
 
     const [loading, setLoading] = useState(false);
     const [commentData, setCommentData] = useState<CommentData[]>([]);
-    const [nextData, setNextData] = useState<string>("")
+    const [nextData, setNextData] = useState<string>('{"timestamp":1,"offset":0}')
 
     const loadMoreData = useCallback(
-      async (postId: string, cursorValue = '{"timestamp":1,"offset":0}') => {
+      async (postId: string, cursorValue = nextData) => {
         if (loading) {
             return;
         }
@@ -28,14 +28,15 @@ export const useGetPostComments = () => {
                 user: `@${item.profile.handle}`,
                 commentContent: item.metadata.content
             })})
-          setCommentData([...commentData, ...utilData])
+          setCommentData((prevCommentData) => [...prevCommentData, ...utilData])
           setLoading(false)
         } catch (err) {
           console.log(err);
           setLoading(false);
         }
       },
-      [commentData, loading]
+      // eslint-disable-next-line
+      []
     )
     
   return {commentData, nextData, setCommentData, loadMoreData}
