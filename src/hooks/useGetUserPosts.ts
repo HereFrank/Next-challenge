@@ -28,7 +28,8 @@ export const useGetUserPosts = () => {
                 imageLink: postLink,
                 numberOfCollects: totalAmountOfCollects,
                 numberOfComments: totalAmountOfComments,
-                numberOfMirrors: totalAmountOfMirrors
+                numberOfMirrors: totalAmountOfMirrors,
+                postId: item.id
             })})
             setPostData((oldPostData) => [...oldPostData, ...utilData])
             setLoading(false)
