@@ -73,13 +73,13 @@ export const Navbar = () => {
               <Button
                 href="https://docs.lens.xyz/docs/what-is-lens"
                 type="text"
-                className="text-md textGreen"
+                className="text-md textGreen lens-text"
               >
                 Lens 101
               </Button>
             </Col>
             <Col>
-              <Button type="primary" className="align-middle">
+              <Button type="primary" className="align-middle login-btn">
                 Log In / Sign Up
               </Button>
             </Col>
