@@ -1,4 +1,4 @@
-import { ImagePost } from "@/types";
+import { CardImagePost } from "@/types";
 import {
   CommentOutlined,
   InboxOutlined,
@@ -14,7 +14,7 @@ const CardImagePost = ({
   numberOfMirrors,
   numberOfComments,
   postId,
-}: ImagePost) => {
+}: CardImagePost) => {
   return (
     <Link href={`/post/${postId}`}>
       <div className="img__wrap">
