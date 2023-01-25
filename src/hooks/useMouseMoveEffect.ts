@@ -1,8 +1,9 @@
 import { getRandomRGB } from "@/helpers";
-import { useEffect, useState } from "react";
+import { RefObject, useEffect, useState } from "react";
+import { useMouse } from "react-use";
 
 
-export const useMouseMoveEffect = () => {
+export const useMouseMoveEffect = (ref: RefObject<Element>) => {
     const [canChange, setCanChange] = useState(true);
     const [fillColors, setFillColors] = useState({
       rec1: getRandomRGB(),
@@ -10,26 +11,24 @@ export const useMouseMoveEffect = () => {
       rec3: getRandomRGB(),
       rec4: getRandomRGB(),
     });
-  
-    const handleMouseMove = (event: any) => {
+    const { docX } = useMouse(ref)
+
+    useEffect(() => {
       if (canChange) {
-        setCanChange(false);
+
+        setCanChange(false)
         setFillColors({
           rec1: getRandomRGB(),
           rec2: getRandomRGB(),
           rec3: getRandomRGB(),
           rec4: getRandomRGB(),
         });
-      } else {
-        return;
-      }
-    };
-  
-    useEffect(() => {
-      if (canChange === false) {
-        setTimeout(() => setCanChange(true), 100);
-      }
-    }, [canChange]);
 
-  return {fillColors, handleMouseMove}
+        setTimeout(() => setCanChange(true), 100)
+
+      }
+      // eslint-disable-next-line
+    }, [docX]);
+
+  return {fillColors}
 }

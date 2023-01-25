@@ -1,9 +1,13 @@
+import { useMouseMoveEffect } from "@/hooks/useMouseMoveEffect";
 import { Col, Row, Button } from "antd";
 import Link from "next/link";
+import { useRef } from "react";
 
-export const Navbar = ({ fillColors }: any) => {
+export const Navbar = () => {
+  const ref = useRef(null);
+  const { fillColors } = useMouseMoveEffect(ref);
   return (
-    <div className="container-fluid maxWidth">
+    <div className="container-fluid maxWidth" ref={ref}>
       <Row justify={"space-between"} align={"middle"} gutter={16}>
         <Col xs={24} sm={24} md={12} lg={8} span={12}>
           <Link href="/">

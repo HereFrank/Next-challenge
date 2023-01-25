@@ -25,10 +25,17 @@ export function processPictureUrl(url: string | undefined): string | null {
     }
 }
 
-export function getRandomRGB() {
-    let r = Math.floor(Math.random() * 256);
-    let g = Math.floor(Math.random() * 256);
-    let b = Math.floor(Math.random() * 256);
+const colors = [
+    "#FD01FD", 
+    "#0000FE", 
+    "#FE0000",
+    "#02FF02",
+    "#02FEFF",
+    "#D9D9D9",
+    "#FFFE03",
+];
 
-    return `rgb(${r},${g},${b})` 
+export function getRandomRGB() {
+    let colorIndex = Math.floor(Math.random() * colors.length);
+    return colors[colorIndex];
 }
