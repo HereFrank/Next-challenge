@@ -25,17 +25,19 @@ export function processPictureUrl(url: string | undefined): string | null {
     }
 }
 
-const colors = [
-    "#FD01FD", 
-    "#0000FE", 
-    "#FE0000",
-    "#02FF02",
-    "#02FEFF",
-    "#D9D9D9",
-    "#FFFE03",
-];
+
 
 export function getRandomRGB() {
+
+    const colors = [
+        "#FD01FD", 
+        "#0000FE", 
+        "#FE0000",
+        "#02FF02",
+        "#02FEFF",
+        "#D9D9D9",
+        "#FFFE03",
+    ];
     let colorIndex = Math.floor(Math.random() * colors.length);
     return colors[colorIndex];
 }

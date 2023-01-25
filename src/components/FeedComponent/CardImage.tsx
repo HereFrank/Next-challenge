@@ -30,21 +30,25 @@ const CardImage = ({
             className="img-fluid isButton roundedImage"
           />
           <div className="prompt_img__description d-flex align-items-center justify-content-between container-fluid">
-            <Space direction="vertical" className="textWhite">
+            <Space direction="vertical" className="textWhite card-mobile">
               <Text className="textGreen">{user}</Text>
-              <Text className="textWhite">Created at: {createdAt}</Text>
-              <Text className="textWhite d-flex">
-                <InboxOutlined className="d-flex align-items-center" />
-                <span className="ms-1">{collects}</span>
+              <Text className="textWhite card-mobile-date">
+                Created at: <span>{createdAt}</span>
               </Text>
-              <Text className="textWhite d-flex">
-                <SwapOutlined className="d-flex align-items-center" />
-                <span className="ms-1">{mirrors}</span>
-              </Text>
-              <Text className="textWhite d-flex">
-                <CommentOutlined className="d-flex align-items-center" />
-                <span className="ms-1">{comments}</span>
-              </Text>
+              <div className="div-mobile">
+                <Text className="textWhite d-flex icon-mobile">
+                  <InboxOutlined className="d-flex align-items-center" />
+                  <span className="ms-1">{collects}</span>
+                </Text>
+                <Text className="textWhite d-flex icon-mobile">
+                  <SwapOutlined className="d-flex align-items-center" />
+                  <span className="ms-1">{mirrors}</span>
+                </Text>
+                <Text className="textWhite d-flex">
+                  <CommentOutlined className="d-flex align-items-center" />
+                  <span className="ms-1">{comments}</span>
+                </Text>
+              </div>
             </Space>
           </div>
         </div>

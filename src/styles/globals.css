@@ -156,3 +156,38 @@ a {
 .text-sm {
   font-size: small !important;
 }
+
+@media (max-width: 570px) {
+  
+  .prompt_img__description {
+    justify-content: center !important;
+  }
+  .prompt_img__description * {
+    font-size: 14px !important;
+  }
+
+  .card-mobile {
+    align-items: center;
+    font-size: 14px !important;
+    gap: 0px !important;
+  }
+
+  .div-mobile {
+    display: flex;
+  }
+
+  .card-mobile-date {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .icon-mobile {
+    margin-right: 10px;
+  }
+}
+
+@media (max-width: 350px) { 
+  .prompt_img__description * {
+    font-size: 12px !important;
+  }  
+}
