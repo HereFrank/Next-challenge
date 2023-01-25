@@ -15,7 +15,8 @@ export const FooterComponent = () => {
         >
           <Text className="textWhite text-sm">
             Made by your frens at{" "}
-            <a href="https://thegallerydao.io" className="text-white">
+            <a href="https://thegallerydao.io" className="text-white text-sm">
+              TheGalleryDAO
               <svg
                 stroke="currentColor"
                 fill="currentColor"
