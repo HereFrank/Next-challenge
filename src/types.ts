@@ -35,7 +35,7 @@ export interface UserData {
 };
 
 export type ImagePost = Omit<PostData, "user" | "profileLink" | "postDescription" | "postId">
-export type CardImagePost = Omit<PostData, "user" | "profileLink" | "postDescription" >
+export type CardImagePost = Omit<PostData, "user" | "profileLink" | "postDescription">
 export type ImagePostData = Omit<PostData, "imageLink" | "numberOfCollects" | "numberOfMirrors">
 export interface CommentData {
   profilePictureLink: string,

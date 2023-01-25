@@ -1,12 +1,12 @@
 import { useCallback, useState } from "react";
-import { ImagePost } from "@/types";
+import { CardData, CardImagePost, ImagePost } from "@/types";
 import { processPictureUrl } from "@/helpers";
 import { getUserPosts } from "@/lensQueries/getUserPosts";
 
 export const useGetUserPosts = () => {
 
     const [loading, setLoading] = useState(false);
-    const [postData, setPostData] = useState<ImagePost[]>([]);
+    const [postData, setPostData] = useState<CardImagePost[]>([]);
     const [nextData, setNextData] = useState<string>('{"timestamp":1,"offset":0}')
 
     const loadMoreData = useCallback(
